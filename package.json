@@ -1,6 +1,6 @@
 {
   "name": "react-weui-pull-to-refresh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Pull-to-refresh react component based on [jquery-weui](https://github.com/lihongxun945/jquery-weui)",
   "main": "index.jsx",
   "scripts": {

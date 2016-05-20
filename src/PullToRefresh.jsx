@@ -49,13 +49,11 @@ export default class extends React.Component {
         if(this.props.disabled) return;
         if(this.state.status === 'loading') return;
         if(!this.startY) return;
-        //if(this.container.scrollTop() > 0) return;
         this.diffY = Math.abs(this.startY - utils.getTouchPositionY(e));
-        console.log(this.diffY)
         if(this.diffY < 0) return;
         e.preventDefault();
         e.stopPropagation();
-        //阻力，
+        //阻力
         this.diffY = Math.pow(this.diffY, 0.8);
 
         this.setState({
