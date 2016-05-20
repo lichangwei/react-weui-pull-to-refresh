@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pull to refresh example</title>
+	<style rel="stylesheet">
+		body{
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<script src="https://jspm.io/system@0.19.js"></script>
+	<script>
+	System.config({
+		transpiler: 'babel',
+		babelOptions: {
+			stage: 1
+		},
+		packages: {
+			'../': {
+				defaultExtension: 'jsx'
+			}
+		}
+	});
+	System.import('./main.jsx');
+	</script>
+</body>
+</html>

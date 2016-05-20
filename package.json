@@ -1,0 +1,29 @@
+{
+  "name": "react-weui-pull-to-refresh",
+  "version": "0.0.1",
+  "description": "A Pull-to-refresh react component based on [jquery-weui](https://github.com/lihongxun945/jquery-weui)",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lichangwei/react-weui-pull-to-refresh.git"
+  },
+  "keywords": [
+    "React",
+    "Component",
+    "Weui",
+    "Pull to refresh"
+  ],
+  "author": {
+    "name": "Li Chang Wei",
+    "email": "lichangwei@love.com",
+    "url": "https://github.com/lichangwei"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lichangwei/react-weui-pull-to-refresh/issues"
+  },
+  "homepage": "https://github.com/lichangwei/react-weui-pull-to-refresh#readme"
+}
