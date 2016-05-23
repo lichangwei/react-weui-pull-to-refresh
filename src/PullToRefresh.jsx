@@ -18,14 +18,20 @@ var utils = {
 export default class extends React.Component {
 
     static propTypes = {
-        onRefresh: PropTypes.func.isRequired,
-        distance:  PropTypes.number,
-        disabled:  PropTypes.bool
+        onRefresh:   PropTypes.func.isRequired,
+        distance:    PropTypes.number,
+        disabled:    PropTypes.bool,
+        textDown:    PropTypes.string,
+        textUp:      PropTypes.string,
+        textRefresh: PropTypes.string
     }
 
     static defaultProps = {
-        distance: 50,
-        disabled: false
+        distance:    50,
+        disabled:    false,
+        textDown:    '下拉刷新',
+        textUp:      '释放刷新',
+        textRefresh: '正在刷新...'
     }
 
     state = {
@@ -36,6 +42,7 @@ export default class extends React.Component {
     }
 
     onTouchStart = (e)=>{
+        if(e.button === 2) return;
         if(this.props.disabled) return;
         if(this.state.status === 'loading') return;
         this.startY = utils.getTouchPositionY(e);
@@ -58,9 +65,9 @@ export default class extends React.Component {
 
         this.setState({
             style: {
-                'webkitTransform': `translate3d(0, ${this.diffY}px, 0)`,
+                'WebkitTransform': `translate3d(0, ${this.diffY}px, 0)`,
                       'transform': `translate3d(0, ${this.diffY}px, 0)`,
-                'webkitTransitionDuration': '0s',
+                'WebkitTransitionDuration': '0s',
                       'transitionDuration': '0s'
             },
             status: this.diffY < this.props.distance ? 'pull-down' : 'pull-up'
@@ -85,9 +92,9 @@ export default class extends React.Component {
         }
         this.setState({
             style: {
-                'webkitTransform': '',
+                'WebkitTransform': '',
                       'transform': '',
-                'webkitTransitionDuration': '',
+                'WebkitTransitionDuration': '',
                       'transitionDuration': ''
             },
             status: status
@@ -111,9 +118,9 @@ export default class extends React.Component {
                 <div className="p2r-layer">
                     <div className="p2r-arrow"></div>
                     <div className="p2r-loading"></div>
-                    <div className="p2r-down">下拉刷新</div>
-                    <div className="p2r-up">释放刷新</div>
-                    <div className="p2r-refresh">正在刷新...</div>
+                    <div className="p2r-down">{ this.props.textDown }</div>
+                    <div className="p2r-up">{ this.props.textUp }</div>
+                    <div className="p2r-refresh">{ this.props.textRefresh }</div>
                 </div>
                 {this.props.children}
             </div>
